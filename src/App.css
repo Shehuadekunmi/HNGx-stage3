@@ -2,6 +2,7 @@
   width: 100%;
 }
 
+
 .thumb img{
   width: 100%;
   height: 100px;
@@ -11,8 +12,9 @@
   width: 97%;
   list-style-type: none;
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(2, 1fr) !important;
   column-gap: 10px;
+  border: 2px solid saddlebrown;
 }
 .imgg{
   width: 100%;

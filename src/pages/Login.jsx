@@ -34,7 +34,7 @@ const Login = () => {
           email,
           password
         );
-  redirect('/drag')
+  redirect('/drop')
   toast.success('Login successful')
 
         console.log(user);

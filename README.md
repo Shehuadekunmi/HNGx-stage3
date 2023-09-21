@@ -4,7 +4,7 @@
 *  A drag and drop app that authenticate  users first before they could do drag and drop of  image within the gallery frame and search by tag
 
 ## table of contents
-* [Home](# home page)
+* [Home](#home page)
 * [Searchbar](# where users can search by tag)
 * [Draganddrop](# drag details)
 * [Signup](# a page where users have to signup with their email and password before they could have access to the drag and drop page)

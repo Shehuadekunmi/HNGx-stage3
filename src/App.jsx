@@ -7,8 +7,8 @@ import Home from './pages/Home'
 import Signup from './pages/Signup'
 import Login from './pages/Login'
 import { Toaster } from 'react-hot-toast'
+import Drop from './pages/Drop'
 
-// import Drop from './pages/Drop'
 
 
 function App() {
@@ -25,7 +25,7 @@ function App() {
         <Route path='/drag' element={<Draganddrop/>}/>
         <Route path='/signup' element={<Signup/>}/>
         <Route path='/login' element={<Login/>}/>
-        {/* <Route path='/drop' element={<Drop/>}/> */}
+        <Route path='/drop' element={<Drop/>}/>
       </Routes>
     </Router>
     </>
