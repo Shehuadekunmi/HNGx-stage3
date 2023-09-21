@@ -2,7 +2,7 @@ import { initializeApp } from "firebase/app";
 import {getAuth} from 'firebase/auth'
 
 const firebaseConfig = {
-    apiKey: 'process.meta.env.api_key',
+    apiKey: 'AIzaSyCHgDXbEwlxcpXQ92UuCC7ELewhOeDr-G0',
     authDomain: "hngx-stage3.firebaseapp.com",
     projectId: "hngx-stage3",
     storageBucket: "hngx-stage3.appspot.com",
