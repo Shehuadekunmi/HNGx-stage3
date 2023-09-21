@@ -83,8 +83,8 @@ const Login = () => {
       <p className="pt-3">No account? <Link to={'/signup'}>Sign Up</Link> </p>
       <h4> User Logged In: </h4>
       {user?.email}
-
-      <button onClick={logout}> Sign Out </button>
+<br />
+      <button className='btn btn-secondary' onClick={logout}> Sign Out </button>
     </form>
     </div>
   </div>
