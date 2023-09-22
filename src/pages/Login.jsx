@@ -4,6 +4,8 @@ import '../styles/signup.css';
 import { Link, useNavigate } from 'react-router-dom';
 import { signInWithEmailAndPassword, onAuthStateChanged, signOut } from 'firebase/auth';
 import { auth } from '../components/Firebaseconfig';
+import { ToastContainer, toast } from 'react-toastify';
+
 
 const Login = () => {
   const [loading, setLoading] = useState(false);
