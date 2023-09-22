@@ -27,6 +27,7 @@ form input{
    width: 80%;
    border: none;
    border-bottom: 1px solid #727272;
+   outline: none;
 }
 
 form button{
