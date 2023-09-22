@@ -50,6 +50,10 @@
   .log img{
     width: 30%;
   }
+  .search{
+    display: flex;
+    justify-content: space-around;
+  }
 }
 
 @media (min-width:1000px) {
@@ -60,7 +64,7 @@
   }
 .search{
   display: flex;
-  flex-direction: row;
+  justify-content: space-around;
 }
   .log{
     width: 20% !important;
@@ -73,10 +77,18 @@
     border: 3px solid hotpink;
     width:400px;
     height: 40px;
+    margin-top: 50px;
   }
   .imgg{
     width: 200px;
     height: 120px;
   }
+ .btt{
+  width: 15%;
  
+ }
+ .btt button{
+  width: 100%;
+  margin-top: 50px;
+ }
 }
