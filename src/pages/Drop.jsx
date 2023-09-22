@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { Images } from '../components/Images'
-import { closestCenter, DndContext } from '@dnd-kit/core'
-import { arrayMove, SortableContext, useSortable, verticalListSortingStrategy } from '@dnd-kit/sortable';
+import { closestCenter, DndContext, KeyboardSensor, MouseSensor, TouchSensor, useSensors, useSensor } from '@dnd-kit/core'
+import { arrayMove, SortableContext, sortableKeyboardCoordinates, useSortable, verticalListSortingStrategy } from '@dnd-kit/sortable';
 import { CSS } from '@dnd-kit/utilities';
 import Loading from '../components/Loading';
 import '../styles/drop.css'
@@ -71,7 +71,13 @@ const Drop = () => {
     setTimeout(() => {
       setLoading(false)
     }, 2000)
-  }, [])
+  }, []);
+
+  const sensors = useSensors(
+    useSensor(MouseSensor, { activationConstraint: { distance: 5}}),
+    useSensor (TouchSensor,  { activationConstraint: { delay: 50, tolerance: 10},}),
+    useSensor (KeyboardSensor, { coordinateGetter: sortableKeyboardCoordinates})
+  )
 
   return (
     <div className="my-5">
@@ -80,7 +86,7 @@ const Drop = () => {
     {
       loading ? (<Loading/>) : (
         <div className="grid-container">
-        <DndContext collisionDetection={closestCenter} onDragEnd={onDragEnd}>
+        <DndContext collisionDetection={closestCenter} onDragEnd={onDragEnd} sensors={sensors}>
           <SortableContext items={users} m>
             {users.map((user, index) => (
               <SortableUser key={user.id} user={user} />
