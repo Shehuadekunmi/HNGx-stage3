@@ -10,7 +10,6 @@ const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [user, setUser] = useState({});
-  const [error, setError] = useState(null);
   const redirect = useNavigate();
 
   useEffect(() => {
@@ -24,6 +23,8 @@ const Login = () => {
 
   const login = async (e) => {
     e.preventDefault();
+    setLoading(true); 
+
     try {
       const userCredential = await signInWithEmailAndPassword(auth, email, password);
       redirect('/drop');
@@ -31,14 +32,12 @@ const Login = () => {
     } catch (error) {
       console.error(error.message);
       if (error.code === 'auth/wrong-password') {
-        setError('Incorrect password. Please check your password.');
+        toast.error('Incorrect password. Please check your password.');
       } else if (error.code === 'auth/user-not-found') {
-        setError('Invalid email address. Please check your email.');
-      } else {
-        setError('An error occurred while logging in. Please try again later.');
+        toast.error('Invalid email address. Please check your email.');
       }
     } finally {
-      setLoading(true);
+      setLoading(false);
     }
   };
 
@@ -50,7 +49,7 @@ const Login = () => {
     <div className="bg container">
       <div className="hei py-5">
         <form className="text-center py-5 log form">
-          
+      
           <div className="my-4">
             <label htmlFor="email">Email</label> <br />
             <input
@@ -59,7 +58,6 @@ const Login = () => {
               required
               onChange={(event) => {
                 setEmail(event.target.value);
-                setError(null); 
               }}
             />
           </div>
@@ -71,17 +69,14 @@ const Login = () => {
               required
               onChange={(event) => {
                 setPassword(event.target.value);
-                setError(null); 
               }}
             />
           </div>
-          {error && <p className="error text-danger">{error}</p>}
-
           <button type="submit" onClick={login} className="btn btn-primary">
             {loading ? <Loading /> : 'Continue'}
           </button>
           <p className="pt-3">
-            No account? <Link to={'/signup'}>Sign Up</Link>{' '}
+            No account? <Link to={'/signup'}>Sign Up</Link>
           </p>
           <h4> User Logged In: </h4>
           {user?.email}
